@@ -1,12 +1,34 @@
 body {
-  display: flexbox;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 #footer {
+  height: 5vh;
+  width: 100vw;
   background-color: rgb(30, 185, 64);
-  display: flexbox;
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  position: fixed;
+  bottom: 0px;
+}
+
+#mainContent {
+  height: 75%;
+  width: 75%;
+  background-color: crimson;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 15%;
+}
+
+.quizWindow {
+  height: 75%;
+  width: 75%;
+  background-color: black;
 }
