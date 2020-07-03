@@ -3,6 +3,9 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #footer {
@@ -19,12 +22,13 @@ body {
 #mainContent {
   height: 75%;
   width: 75%;
-  background-color: crimson;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   bottom: 15%;
+  border-radius: 1vh;
+  box-shadow: 5px 5px 10px 5px black;
 }
 
 .quizWindow {
@@ -35,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  border-radius: 1vh;
 }
 
 .questionDiv {
@@ -45,19 +50,31 @@ body {
   height: 12vh;
   width: 100%;
   background-color: white;
+  border-top-left-radius: 1vh;
+  border-top-right-radius: 1vh;
 }
 
 .answerChoice {
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
   height: 15%;
   width: 75%;
   background-color: rgb(63, 60, 57);
   margin-top: 1vh;
   position: relative;
   top: 5%;
+  color: aliceblue;
+  border-radius: 1vh;
 }
 
 h1 {
   position: fixed;
+  font-size: 5vw;
+}
+
+h6 {
+  margin-top: 0.5%;
+  color: aliceblue;
 }
