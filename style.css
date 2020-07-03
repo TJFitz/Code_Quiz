@@ -6,12 +6,13 @@ body {
   background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  text-shadow: 2px 2px rgb(0, 0, 0);
 }
 
 #footer {
   height: 5vh;
   width: 100vw;
-  background-color: rgb(30, 185, 64);
+  background-color: rgba(24, 24, 24, 0.815);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +28,7 @@ body {
   align-items: center;
   position: fixed;
   bottom: 15%;
+  background-color: rgba(0, 0, 0, 0.199);
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
   border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
@@ -39,11 +41,12 @@ body {
 .quizWindow {
   height: 75%;
   width: 75%;
-  /* background-color: black; */
   display: flexbox;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.377);
+
   border-radius: 1vh;
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
@@ -51,7 +54,7 @@ body {
   border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
   box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
+    -6px 8px 15px 2px rgba(224, 223, 223, 0.39);
 }
 
 .questionDiv {
@@ -61,7 +64,7 @@ body {
   align-items: center;
   height: 12vh;
   width: 100%;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.507);
   border-top-left-radius: 1vh;
   border-top-right-radius: 1vh;
 }
@@ -73,10 +76,11 @@ body {
   align-items: center;
   height: 15%;
   width: 75%;
-  /* background-color: rgb(63, 60, 57); */
   margin-top: 1vh;
   position: relative;
   top: 5%;
+  background-color: rgba(0, 0, 0, 0.295);
+
   color: aliceblue;
   border-radius: 1vh;
   border-radius: 1vh;
@@ -85,12 +89,13 @@ body {
   border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
   box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
+    -4px 6px 15px 2px rgba(224, 223, 223, 0.377);
 }
 
 h1 {
   position: fixed;
   font-size: 5vw;
+  color: aliceblue;
 }
 
 h6 {
