@@ -28,18 +28,30 @@ body {
   position: fixed;
   bottom: 15%;
   border-radius: 1vh;
-  box-shadow: 5px 5px 10px 5px black;
+  border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
+  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
+  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
+  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
+    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
 }
 
 .quizWindow {
   height: 75%;
   width: 75%;
-  background-color: black;
+  /* background-color: black; */
   display: flexbox;
   justify-content: center;
   align-items: center;
   position: relative;
   border-radius: 1vh;
+  border-radius: 1vh;
+  border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
+  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
+  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
+  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
+    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
 }
 
 .questionDiv {
@@ -49,7 +61,7 @@ body {
   align-items: center;
   height: 12vh;
   width: 100%;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   border-top-left-radius: 1vh;
   border-top-right-radius: 1vh;
 }
@@ -61,12 +73,19 @@ body {
   align-items: center;
   height: 15%;
   width: 75%;
-  background-color: rgb(63, 60, 57);
+  /* background-color: rgb(63, 60, 57); */
   margin-top: 1vh;
   position: relative;
   top: 5%;
   color: aliceblue;
   border-radius: 1vh;
+  border-radius: 1vh;
+  border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
+  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
+  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
+  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
+    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
 }
 
 h1 {
