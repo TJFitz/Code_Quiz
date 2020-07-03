@@ -31,4 +31,33 @@ body {
   height: 75%;
   width: 75%;
   background-color: black;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.questionDiv {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
+  width: 100%;
+  background-color: white;
+}
+
+.answerChoice {
+  display: flex;
+  position: relative;
+  height: 15%;
+  width: 75%;
+  background-color: rgb(63, 60, 57);
+  margin-top: 1vh;
+  position: relative;
+  top: 5%;
+}
+
+h1 {
+  position: fixed;
 }
