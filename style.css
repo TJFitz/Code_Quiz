@@ -1,18 +1,35 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
-  background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg);
-  background-size: cover;
+  background-image: radial-gradient(
+    rgb(0, 0, 0),
+    rgb(31, 31, 31),
+    rgb(0, 0, 0)
+  );
   background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+#header {
+  background-color: rgba(5, 5, 5, 0.822);
+  display: flexbox;
+  text-align: center;
+  height: 7vh;
+  width: 100%;
+  justify-content: center;
+}
+
+#header h1 {
+  font-size: 5vh;
 }
 
 #footer {
   height: 5vh;
   width: 100vw;
-  background-color: rgba(24, 24, 24, 0.815);
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +38,16 @@ body {
 }
 
 #mainContent {
+  background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg);
+  background-size: cover;
+  background-repeat: unset;
   height: 75%;
   width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 15%;
+  bottom: 13%;
   background-color: rgba(0, 0, 0, 0.199);
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
@@ -35,7 +55,7 @@ body {
   border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
   box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -8px 10px 15px 2px rgba(224, 223, 223, 0.308);
+    -8px 10px 15px 2px rgba(70, 70, 70, 0.308);
 }
 
 .quizWindow {
@@ -87,17 +107,29 @@ body {
   border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
   border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
-  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -4px 6px 10px 1px rgba(168, 168, 168, 0.322);
+  box-shadow: 10px -4px 20px 2px rgba(0, 0, 0, 0.801),
+    -4px 6px 5px 1px rgba(216, 213, 213, 0.322);
 }
 
 h1 {
-  position: fixed;
-  font-size: 5vw;
+  font-size: 4vw;
   color: aliceblue;
+}
+
+h3 {
+  font-size: 3vw;
 }
 
 h6 {
   margin-top: 0.5%;
   color: aliceblue;
+}
+
+.answerChoice:hover {
+  background-color: rgba(43, 43, 43, 0.123);
+}
+
+.answerChoice:active {
+  box-shadow: 10px -4px 20px 10px inset rgba(0, 0, 0, 0.719),
+    -2px 6px 30px 1px inset rgba(139, 139, 139, 0.329);
 }
