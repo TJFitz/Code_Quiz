@@ -4,7 +4,7 @@ body {
   position: relative;
   background-image: radial-gradient(
     rgb(0, 0, 0),
-    rgb(31, 31, 31),
+    rgb(29, 27, 27),
     rgb(0, 0, 0)
   );
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@ body {
 }
 
 #mainContent {
-  background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg);
+  /* background-image: url(/black-and-white-macro-photography-of-a-leaf-4593904.jpg); */
   background-size: cover;
   background-repeat: unset;
   height: 75%;
@@ -48,14 +48,15 @@ body {
   align-items: center;
   position: fixed;
   bottom: 13%;
-  background-color: rgba(0, 0, 0, 0.199);
+  background-color: rgba(0, 0, 0, 0.377);
+
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
-  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
-  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-bottom: 0.2vw solid rgba(15, 15, 15, 0.349);
+  border-left: 0.1vw solid rgba(54, 54, 54, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
-  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -8px 10px 15px 2px rgba(70, 70, 70, 0.308);
+  box-shadow: 12px -10px 15px 15px rgba(0, 0, 0, 0.575),
+    -8px 10px 15px 10px rgba(43, 43, 43, 0.582);
 }
 
 .quizWindow {
@@ -65,16 +66,16 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.377);
+  background-color: rgba(36, 36, 36, 0.295);
 
   border-radius: 1vh;
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
-  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
-  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.185);
+  border-left: 0.1vw solid rgba(51, 51, 51, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
-  box-shadow: 10px -1px 20px 2px rgba(0, 0, 0, 0.801),
-    -6px 8px 15px 2px rgba(156, 156, 156, 0.39);
+  box-shadow: 10px -4px 20px 10px rgba(0, 0, 0, 0.801),
+    -6px 8px 15px 7px rgba(156, 156, 156, 0.205);
 }
 
 .questionDiv {
@@ -99,16 +100,17 @@ body {
   margin-top: 1vh;
   position: relative;
   top: 5%;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(43, 43, 43, 0.199);
+
   color: aliceblue;
   border-radius: 1vh;
   border-radius: 1vh;
   border-top: 0.1vw solid rgba(22, 22, 22, 0.575);
-  border-bottom: 0.2vw solid rgba(0, 0, 0, 0.349);
-  border-left: 0.1vw solid rgba(100, 100, 100, 0.171);
+  border-bottom: 0.2vw solid rgba(26, 26, 26, 0.349);
+  border-left: 0.1vw solid rgba(73, 73, 73, 0.171);
   border-right: 0.1vw solid rgba(14, 14, 14, 0.774);
-  box-shadow: 10px -4px 20px 2px rgba(0, 0, 0, 0.801),
-    -4px 6px 5px 1px rgba(216, 213, 213, 0.322);
+  box-shadow: 10px -4px 20px 5px rgba(0, 0, 0, 0.801),
+    -4px 6px 10px 5px rgba(136, 136, 136, 0.247);
 }
 
 h1 {
@@ -131,5 +133,7 @@ h6 {
 
 .answerChoice:active {
   box-shadow: 10px -4px 20px 10px inset rgba(0, 0, 0, 0.719),
-    -2px 6px 30px 1px inset rgba(139, 139, 139, 0.329);
+    -2px 15px 30px 1px inset rgba(119, 119, 119, 0.329);
+  border-left: 0vh;
+  border-bottom: 0vh;
 }
