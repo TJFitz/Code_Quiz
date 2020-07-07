@@ -53,6 +53,10 @@ function startFunction() {
   displayQuestion();
 }
 
+// Click handler for start button
+
+$("#startButton").click(startFunction);
+
 // Function to start timer
 
 function setTime() {
@@ -61,8 +65,9 @@ function setTime() {
     $("#header")
       .children()
       .text(timer + " seconds remaining");
-    if (timer === 0) {
+    if (timer <= 0) {
       clearInterval(timerCounter);
+      endQuiz();
     }
     if (questionCounter === quizArray.length) {
       clearInterval(timerCounter);
@@ -71,36 +76,20 @@ function setTime() {
   }, 1000);
 }
 
-// Function to handle generation of quiz elements on each question
+// Functions to assist with displayQuestion
 
-function displayQuestion() {
-  if (questionCounter === quizArray.length) {
-    endQuiz();
-  } else {
-    var currentQuestion = quizArray[questionCounter];
-    quizWindow.fadeIn(1000);
-    quizWindow.append(questionDiv);
-    questionDiv.fadeIn(1000);
-    questionDiv.append($("<h1></h1>").text(currentQuestion.question));
-    for (var i = 0; i < currentQuestion.answers.length; i++) {
-      var currentAnswer = $("<div></div>")
-        .attr("class", "answerChoice")
-        .append($("<h3></h3>").text(currentQuestion.answers[i]));
-      if (i === currentQuestion.correctAnswer) {
-        currentAnswer.click(correct);
-      } else {
-        currentAnswer.click(incorrect);
-      }
-      quizWindow.append(currentAnswer);
-    }
-  }
+function removeElements() {
+  quizWindow.empty();
+  questionDiv.empty();
 }
 
-// Click handler for start button
-
-$("#startButton").click(startFunction);
-
-// Functions to assist in with displayQuestion
+function nextQuestion() {
+  quizWindow.fadeOut(1800);
+  questionDiv.fadeOut(1800);
+  setTimeout(removeElements, 1500);
+  questionCounter++;
+  setTimeout(displayQuestion, 2000);
+}
 
 function correct() {
   this.style.backgroundColor = "green";
@@ -113,21 +102,31 @@ function incorrect() {
   nextQuestion();
 }
 
-function nextQuestion() {
-  quizWindow.fadeOut(2000);
-  questionDiv.fadeOut(2000);
-  setTimeout(removeElements, 1800);
-  questionCounter++;
-  setTimeout(displayQuestion, 2000);
-}
-
-function removeElements() {
-  quizWindow.empty();
-  questionDiv.empty();
-}
-
 function endQuiz() {
   window.location.href = "highscores.html";
 }
 
-// $("#initials").
+// Function to handle generation of quiz elements on each question
+
+function displayQuestion() {
+  if (questionCounter === quizArray.length) {
+    endQuiz();
+  } else {
+    var currentQuestion = quizArray[questionCounter];
+    quizWindow.append(questionDiv);
+    questionDiv.append($("<h1></h1>").text(currentQuestion.question));
+    for (var i = 0; i < currentQuestion.answers.length; i++) {
+      var currentAnswer = $("<div></div>")
+        .attr("class", "answerChoice")
+        .append($("<h3></h3>").text(currentQuestion.answers[i]));
+      if (i === currentQuestion.correctAnswer) {
+        currentAnswer.click(correct);
+      } else {
+        currentAnswer.click(incorrect);
+      }
+      quizWindow.append(currentAnswer);
+    }
+    quizWindow.fadeIn(1000);
+    questionDiv.fadeIn(1000);
+  }
+}
