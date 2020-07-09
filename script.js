@@ -158,9 +158,6 @@ function displayQuestion() {
 
 // Handling of highscores
 
-// var scoresArray = [];
-// var storedArray = JSON.parse(localStorage.getItem("highscoresArray"));
-
 $("#initials").keypress(function (e) {
   if (e.which === 13) {
     var inputVal = $("#initials").val();
@@ -171,21 +168,21 @@ $("#initials").keypress(function (e) {
     $("#initials").val("");
     highscoreEntry = thisWork + " " + score;
     scoresArray.push(highscoreEntry);
-    localStorage.getItem("highscoresArray");
     localStorage.setItem("highscoresArray", JSON.stringify(scoresArray));
-
     highScoreFunction();
   }
 });
 
 function highScoreFunction() {
   $("#highscores").empty();
-  var attempt = localStorage.getItem("highscoresArray");
-  var storedArray = JSON.parse(attempt);
-  console.log("something", storedArray);
-  scoresArray.push(storedArray);
-  for (var i = 0; i < storedArray.length; i++) {
-    $("#highscores").append($("<div>").append($("<h3>").text(storedArray[i])));
+  var storedArray = JSON.parse(localStorage.getItem("highscoresArray"));
+  if (storedArray !== null && storedArray.length > 0) {
+    scoresArray = storedArray;
+    for (var i = 0; i < scoresArray.length; i++) {
+      $("#highscores").append(
+        $("<div>").append($("<h3>").text(scoresArray[i]))
+      );
+    }
   }
 }
 
