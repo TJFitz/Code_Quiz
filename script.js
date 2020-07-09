@@ -1,9 +1,11 @@
 // Variable declaration
 
-var quizWindow = $("<div></div>").attr("class", "quizWindow");
-var questionDiv = $("<div></div>").attr("class", "questionDiv");
+var quizWindow = $("<div>").attr("class", "quizWindow");
+var questionDiv = $("<div>").attr("class", "questionDiv");
 var timer = 60;
 var questionCounter = 0;
+var isDisplaying;
+var isStarting;
 var quizArray = [
   {
     question: "Have you ever gone so far as to become such as?",
@@ -45,19 +47,23 @@ var quizArray = [
 // Function to begin the quiz
 
 function startFunction() {
-  $("#title").fadeOut(1000);
-  setTimeout(function () {
-    $("#mainContent").append(quizWindow);
-  }, 1100);
-  setTime();
-  displayQuestion();
+  if (isStarting) {
+    return;
+  } else {
+    $("#title").fadeOut(1000);
+    setTimeout(function () {
+      $("#mainContent").append(quizWindow);
+    }, 1100);
+    setTime();
+    displayQuestion();
+  }
 }
 
 // Click handler for start button
 
 $("#startButton").click(startFunction);
 
-// Function to start timer
+// Function to handle timer
 
 function setTime() {
   var timerCounter = setInterval(function () {
@@ -84,11 +90,16 @@ function removeElements() {
 }
 
 function nextQuestion() {
-  quizWindow.fadeOut(1800);
-  questionDiv.fadeOut(1800);
-  setTimeout(removeElements, 1500);
-  questionCounter++;
-  setTimeout(displayQuestion, 2000);
+  if (isDisplaying) {
+    return;
+  } else {
+    isDisplaying = true;
+    quizWindow.fadeOut(800);
+    questionDiv.fadeOut(800);
+    setTimeout(removeElements, 1000);
+    questionCounter++;
+    setTimeout(displayQuestion, 1800);
+  }
 }
 
 function correct() {
@@ -98,27 +109,38 @@ function correct() {
 
 function incorrect() {
   this.style.backgroundColor = "red";
-  timer = timer - 5;
+  if (isDisplaying) {
+    return;
+  } else {
+    timer = timer - 5;
+  }
   nextQuestion();
 }
 
 function endQuiz() {
-  window.location.href = "highscores.html";
+  quizWindow.fadeOut(800);
+  questionDiv.fadeOut(800);
+  var finalTime = timer;
+  localStorage.setItem("finalTime", finalTime);
+  setTimeout(function () {
+    window.location.href = "highscores.html";
+  }, 1000);
 }
 
 // Function to handle generation of quiz elements on each question
 
 function displayQuestion() {
+  isStarting = true;
   if (questionCounter === quizArray.length) {
     endQuiz();
   } else {
     var currentQuestion = quizArray[questionCounter];
     quizWindow.append(questionDiv);
-    questionDiv.append($("<h1></h1>").text(currentQuestion.question));
+    questionDiv.append($("<h1>").text(currentQuestion.question));
     for (var i = 0; i < currentQuestion.answers.length; i++) {
-      var currentAnswer = $("<div></div>")
+      var currentAnswer = $("<div>")
         .attr("class", "answerChoice")
-        .append($("<h3></h3>").text(currentQuestion.answers[i]));
+        .append($("<h3>").text(currentQuestion.answers[i]));
       if (i === currentQuestion.correctAnswer) {
         currentAnswer.click(correct);
       } else {
@@ -128,5 +150,23 @@ function displayQuestion() {
     }
     quizWindow.fadeIn(1000);
     questionDiv.fadeIn(1000);
+    isDisplaying = false;
   }
 }
+
+// Handling of highscores
+$("#initials").keypress(function (e) {
+  if (e.which === 13) {
+    var inputVal = $("#initials").val();
+    localStorage.setItem("initials", inputVal);
+    var thisWork = localStorage.getItem("initials");
+    var finalTime = localStorage.getItem("finalTime");
+    var score = finalTime * 117;
+    console.log(thisWork);
+    $("#initials").val("");
+    $("#highscores").append(
+      $("<div>").append($("<h3>").text(thisWork + " " + score))
+    );
+    localStorage.clear();
+  }
+});
