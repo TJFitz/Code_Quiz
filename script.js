@@ -1,11 +1,13 @@
 // Variable declaration
 
+var isDisplaying;
+var isStarting;
 var quizWindow = $("<div>").attr("class", "quizWindow");
 var questionDiv = $("<div>").attr("class", "questionDiv");
 var timer = 60;
 var questionCounter = 0;
-var isDisplaying;
-var isStarting;
+var scoresArray = [];
+
 var quizArray = [
   {
     question: "Have you ever gone so far as to become such as?",
@@ -155,6 +157,10 @@ function displayQuestion() {
 }
 
 // Handling of highscores
+
+// var scoresArray = [];
+// var storedArray = JSON.parse(localStorage.getItem("highscoresArray"));
+
 $("#initials").keypress(function (e) {
   if (e.which === 13) {
     var inputVal = $("#initials").val();
@@ -162,11 +168,25 @@ $("#initials").keypress(function (e) {
     var thisWork = localStorage.getItem("initials");
     var finalTime = localStorage.getItem("finalTime");
     var score = finalTime * 117;
-    console.log(thisWork);
     $("#initials").val("");
-    $("#highscores").append(
-      $("<div>").append($("<h3>").text(thisWork + " " + score))
-    );
-    localStorage.clear();
+    highscoreEntry = thisWork + " " + score;
+    scoresArray.push(highscoreEntry);
+    localStorage.getItem("highscoresArray");
+    localStorage.setItem("highscoresArray", JSON.stringify(scoresArray));
+
+    highScoreFunction();
   }
 });
+
+function highScoreFunction() {
+  $("#highscores").empty();
+  var attempt = localStorage.getItem("highscoresArray");
+  var storedArray = JSON.parse(attempt);
+  console.log("something", storedArray);
+  scoresArray.push(storedArray);
+  for (var i = 0; i < storedArray.length; i++) {
+    $("#highscores").append($("<div>").append($("<h3>").text(storedArray[i])));
+  }
+}
+
+highScoreFunction();
