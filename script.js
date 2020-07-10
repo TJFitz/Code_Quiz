@@ -10,39 +10,30 @@ var scoresArray = [];
 
 var quizArray = [
   {
-    question: "Have you ever gone so far as to become such as?",
-    answers: ["Yes", "No", "Maybe", "What?"],
-    correctAnswer: 2,
-  },
-  {
-    question: "Beans?",
-    answers: ["Huh", "Who?", "Do you mean legumes?", "BEANS!"],
-    correctAnswer: 3,
-  },
-  {
-    question: "What is your name?",
-    answers: [
-      "My name is Sir Lancelot of Camelot",
-      "Sir Robin of Camelot",
-      "Sir Galahad of Camelot",
-      "It is Arthur, King of the Britains",
-    ],
+    question: "Which of the following is NOT a common data type?",
+    answers: ["Booleans", "Ropes", "Numbers", "Objects"],
     correctAnswer: 1,
   },
   {
-    question: "What is your favorite color?",
-    answers: ["Red", "Purple", "Green", "Blue... no yellow!"],
+    question: "Which of the follow is NOT a type of loop?",
+    answers: ["For loop", "While loop", "Do/While", "Infinite"],
     correctAnswer: 3,
   },
   {
-    question: "What is the airspeed velocity of an unladen swallow?",
-    answers: [
-      "A what?",
-      "How should I know that?",
-      "This makes no sense",
-      "What do you mean, an African or European swallow?",
-    ],
+    question:
+      "What type of brackets are used for defining the body of a function?",
+    answers: ["Curly", "Square", "Parens", "Arrows"],
+    correctAnswer: 0,
+  },
+  {
+    question: "What is the operator for OR statements",
+    answers: ["&&", "%", "...", "||"],
     correctAnswer: 3,
+  },
+  {
+    question: "Arrays can hold how many items?",
+    answers: ["100", "99", "As many as we would like", "What is an array?"],
+    correctAnswer: 2,
   },
 ];
 
@@ -70,9 +61,7 @@ $("#startButton").click(startFunction);
 function setTime() {
   var timerCounter = setInterval(function () {
     timer--;
-    $("#header")
-      .children()
-      .text(timer + " seconds remaining");
+    $("#timer").text(timer + " seconds remaining");
     if (timer <= 0) {
       clearInterval(timerCounter);
       endQuiz();
@@ -187,3 +176,13 @@ function highScoreFunction() {
 }
 
 highScoreFunction();
+
+// Function to handle highscores/tryagain button, this is still not functioning properly
+
+$("#highscoreDiv").click(function () {
+  if (window.location.href === "index.html") {
+    window.location.href = "highscores.html";
+  } else {
+    window.location.href = "index.html";
+  }
+});
