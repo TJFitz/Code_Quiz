@@ -155,7 +155,10 @@ $("#initials").keypress(function (e) {
     var finalTime = localStorage.getItem("finalTime");
     var score = finalTime * 117;
     $("#initials").val("");
-    highscoreEntry = thisWork + " " + score;
+    var highscoreEntry = {
+      name: thisWork,
+      score: score,
+    };
     scoresArray.push(highscoreEntry);
     localStorage.setItem("highscoresArray", JSON.stringify(scoresArray));
     highScoreFunction();
@@ -167,9 +170,14 @@ function highScoreFunction() {
   var storedArray = JSON.parse(localStorage.getItem("highscoresArray"));
   if (storedArray !== null && storedArray.length > 0) {
     scoresArray = storedArray;
+    scoresArray.sort(function (a, b) {
+      return b.score - a.score;
+    });
     for (var i = 0; i < scoresArray.length; i++) {
       $("#highscores").append(
-        $("<div>").append($("<h3>").text(scoresArray[i]))
+        $("<div>").append(
+          $("<h3>").text(scoresArray[i].name + " " + scoresArray[i].score)
+        )
       );
     }
   }
